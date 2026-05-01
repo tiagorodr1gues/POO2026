@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindStep – Os teus objetivos, passo a passo</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">Mind<span>Step</span></div>
+        <div id="nav-login">
+            <button class="btn btn-secundario" id="btn-login-nav">Entrar / Registar</button>
+        </div>
+        <div id="nav-user" style="display:none;">
+            <span id="nome-user"></span>
+            <button class="btn btn-perigo" id="btn-sair">Sair</button>
+        </div>
+    </nav>
+    <div id="painel-home">
+        <h1>Mind<span>Step</span> 🧠</h1>
+        <p>A aplicação que te ajuda a alcançar os teus objetivos, um passo de cada vez.<br>
+           Feita especialmente para jovens que querem organizar a sua vida de forma simples e motivadora.</p>
+
+        <div class="home-cards">
+            <div class="home-card">
+                🎯
+                <p>Define objetivos e acompanha o teu progresso</p>
+            </div>
+            <div class="home-card">
+                🏆
+                <p>Ganha pontos e sobe de nível ao concluir tarefas</p>
+            </div>
+            <div class="home-card">
+                🔔
+                <p>Recebe lembretes para não esqueceres nada</p>
+            </div>
+        </div>
+
+        <button class="btn btn-primario" id="btn-comecar" style="font-size:1.1rem; padding: 0.8rem 2rem;">
+            Começar agora →
+        </button>
+    </div>
+
+    <div id="painel-auth">
+        <div class="auth-box">
+            <h2>🧠 MindStep</h2>
+
+            <div class="abas">
+                <button class="aba-btn ativa" data-aba="login">Entrar</button>
+                <button class="aba-btn" data-aba="registo">Criar conta</button>
+            </div>
+            <div id="erro-auth"></div>
+
+            <div id="form-login" class="form-grupo" style="display:flex;">
+                <input type="email" id="login-email" placeholder="Email" autocomplete="email">
+                <input type="password" id="login-pass" placeholder="Password">
+                <button class="btn btn-primario" id="btn-entrar">Entrar</button>
+            </div>
+
+            <div id="form-registo" class="form-grupo">
+                <input type="text" id="reg-nome" placeholder="Nome">
+                <input type="email" id="reg-email" placeholder="Email">
+                <input type="password" id="reg-pass" placeholder="Password">
+                <button class="btn btn-primario" id="btn-registar">Criar conta</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="painel-app">
+
+        <div class="app-header">
+            <h2>Os meus objetivos 🎯</h2>
+            <button class="btn btn-primario" id="btn-nova-tarefa">+ Novo objetivo</button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="emoji">⭐</div>
+                <span class="valor" id="stat-pontos">0</span>
+                <span class="label">Pontos</span>
+            </div>
+            <div class="stat-card">
+                <div class="emoji">🏅</div>
+                <span class="valor" id="stat-nivel">1</span>
+                <span class="label">Nível</span>
+            </div>
+            <div class="stat-card">
+                <div class="emoji">📋</div>
+                <span class="valor" id="stat-total">0</span>
+                <span class="label">Objetivos</span>
+            </div>
+            <div class="stat-card">
+                <div class="emoji">✅</div>
+                <span class="valor" id="stat-concluidas">0</span>
+                <span class="label">Concluídos</span>
+            </div>
+        </div>
+
+        <div class="progresso-container">
+            <h4>Progresso geral</h4>
+            <div class="barra-fundo">
+                <div id="barra-progresso"></div>
+            </div>
+            <span id="progresso-pct">0%</span>
+        </div>
+
+        <div id="form-tarefa">
+            <input type="text" id="input-titulo" placeholder="Título do objetivo (ex: Estudar matemática)">
+            <textarea id="input-descricao" rows="2" placeholder="Descrição (opcional)"></textarea>
+            <input type="date" id="input-prazo">
+            <div class="form-botoes">
+                <button class="btn btn-primario" id="btn-guardar">Guardar</button>
+                <button class="btn btn-secundario" id="btn-cancelar">Cancelar</button>
+            </div>
+        </div>
+
+        <div id="mensagem" class="mensagem"></div>
+
+        <div id="lista-tarefas"></div>
+    </div>
+
+    <script src="../js/model/taskModel.js"></script>
+    <script src="../js/view/taskView.js"></script>
+    <script src="../js/view/commonView.js"></script>
+    <script src="../js/init.js"></script>
+
+    <script>
+        document.getElementById("btn-comecar").addEventListener("click", mostrarAuth);
+    </script>
+
+</body>
+</html>
