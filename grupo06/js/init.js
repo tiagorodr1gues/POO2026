@@ -14,8 +14,8 @@ function injetarDadosIniciais() {
                     email: "admin@mindstep.pt",
                     password: "admin123",
                     role: "admin",
-                    pontos: 1000,
-                    nivel: 50,
+                    pontos: 20,
+                    nivel: 5,
                     favoritos: []
                 },
                 {
